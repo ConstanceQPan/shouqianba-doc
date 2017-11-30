@@ -43,7 +43,7 @@
    * 接口中所有涉及金额的地方都以 <font color="red">**分**</font> 为单位。
 ### 签名案例
 ```
-curl --request POST \
+curl --request POST
   --url http://api.shouqianba.com/upay/v2/pay
   --header 'Authorization: sn+" "+sign' 
   --header 'content-type: application/json'
