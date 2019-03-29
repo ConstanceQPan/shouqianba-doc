@@ -59,12 +59,13 @@ payer_uid|	付款人ID|	String(64)|N|支付平台（微信，支付宝）上的�
 payer_login|付款人账号|String(128)|N|支付平台上(微信，支付宝)的付款人账号|"134****3920"
 total_amount|交易总额	|String(10)|Y|本次交易总金额|"10000"
 net\_amount|实收金额|String(10)|Y|如果没有退款，这个字段等于total\_amount。否则等于 total_amount减去退款金额|"0"
+settlement_amount|结算金额	|String(10)|Y|本次交易结算金额|"10000"
 subject|	交易概述|	String(64)|	Y|本次交易概述|"Pizza"
 finish_time	|付款动作在收钱吧的完成时间|String(13)|Y|时间戳|"1449646835244"
 channel\_finish_time|付款动作在支付服务商的完成时间|String(13)|Y|时间戳|"1449646835244"
 operator	|操作员	|String(32)	|Y	|门店操作员	|"张三丰"
 reflect	|反射参数|	String(64)	|N|	透传参数	| {"tips": "200"}
-payment_list |活动优惠 |JSON |N |格式为json payment_list的值为数组，每一个元素包含两个字段，一个是type支付名称，一个amount_total支付金额 |"payment_list": [{"type": "BANKCARD_DEBIT","amount_total": "1"},{"type": "DISCOUNT_CHANNEL_MCH","amount_total": "100"}]
+payment_list |活动优惠 |JSON |N |格式为json payment_list的值为数组，每一个元素包含三个字段，一个是type支付名称，一个amount_total支付金额，一个是amount此次业务的变动金额 |"payment_list": [{"type": "BANKCARD_DEBIT","amount_total": "1"},{"type": "DISCOUNT_CHANNEL_MCH","amount_total": "100","amount": "100"}]
 
 
 ## payment_list参数说明
@@ -106,12 +107,13 @@ payer_uid|	付款人ID|	String(64)|N|支付平台（微信，支付宝）上的�
 payer_login|付款人账号|String(128)|N|支付平台上(微信，支付宝)的付款人账号|"134****3920"
 total_amount|交易总额	|String(10)|Y|本次交易总金额|"10000"
 net\_amount|实收金额|String(10)|Y|如果没有退款，这个字段等于total\_amount。否则等于 total_amount减去退款金额|"0"
+settlement_amount|结算金额	|String(10)|Y|本次交易结算金额|"10000"
 subject|	交易概述|	String(64)|	Y|本次交易概述|"Pizza"
 finish_time	|付款动作在收钱吧的完成时间|String(13)|Y|时间戳|"1449646835244"
 channel\_finish_time|付款动作在支付服务商的完成时间|String(13)|Y|时间戳|"1449646835244"
 operator	|操作员	|String(32)	|Y	|门店操作员	|"张三丰"
 reflect	|反射参数|	String(64)	|N|	透传参数	| {"tips": "200"}
-payment_list |活动优惠 |JSON |N |格式为json payment_list的值为数组，每一个元素包含两个字段，一个是type支付名称，一个amount_total支付金额 |"payment_list": [{"type": "BANKCARD_DEBIT","amount_total": "1"},{"type": "DISCOUNT_CHANNEL_MCH","amount_total": "100"}]
+payment_list |活动优惠 |JSON |N |格式为json payment_list的值为数组，每一个元素包含三个字段，一个是type支付名称，一个amount_total支付金额，一个是amount此次业务的变动金额 |"payment_list": [{"type": "BANKCARD_DEBIT","amount_total": "1"},{"type": "DISCOUNT_CHANNEL_MCH","amount_total": "100", "amount": "100"}]
 
 ## payment_list参数说明
 type |描述
@@ -162,6 +164,7 @@ ALIPAY_POINT  |支付宝 集分宝
            "trade_no": "4003262001201704187463804544",
            "total_amount": "101",
            "net_amount": "101",
+	   "settlement_amount":"101",
            "finish_time": "1492506702864",
            "channel_finish_time": "1492506702000",
            "subject": "Apple iPhone 6s plus (A1699) 16G 玫瑰金色 移动联通电信4G手机",
